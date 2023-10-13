@@ -1,0 +1,13 @@
+<%- include("header"); -%>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<h1 style="text-align: center;"><%= result %></h1>
+<form id = "contact" action="/postFeedBack" method="POST">
+    <input name="name" type="text" placeholder="Enter Your Name">
+    <input name="email" type="email" placeholder="Enter Your Email">
+    <input name="feedback" type="text" placeholder = "Feedback/Suggestions">
+    <button id = "sub" name="submit" type="submit">SUBMIT</button>
+</form>
+<%- include("footer"); -%>

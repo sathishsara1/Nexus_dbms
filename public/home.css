@@ -1,0 +1,67 @@
+header{
+    background-color: #B284BE;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nexus{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 20px;
+    font-family: 'Kalam', cursive;
+    font-size: 2rem;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    width: 40vw;
+    right: 0;
+}
+header a{
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    padding: 2%;
+    transition: 0.4s;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+a:hover{
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+    
+}
+.Body{
+    width: 40%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 5%;
+    top: 28vh;
+    left: 15vw;
+    color: #880085;
+}
+#ebook{
+    width: 60%;
+    height: 80%;
+}
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    font-weight: 1000;
+    color: #880085;;
+}

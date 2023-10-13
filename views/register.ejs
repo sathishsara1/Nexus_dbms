@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("header"); -%>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+        <title>Login Page</title>
+    </head>
+
+    <body>
+        <div class="loginpage">
+            <div id="signup">
+                <div id="text1">
+                    SIGN UP
+                </div>
+                <form action="/register" method="POST">
+                    <input name="name" type="text" placeholder="Enter Your Name">
+                    <input name="email" type="email" placeholder="Enter Your Email">
+                    <input name="password" type="password" placeholder="Enter Your Password">
+                    <input type="text" name="collegeName" placeholder="Enter Your College Name">
+                    <button name="login" type="submit">SIGN UP</button>
+                </form>
+            </div>
+            <div id="login">
+                <div id="text2">
+                    <%= result %>
+                </div>
+                <form action="/login" method="POST">
+                    <input name="email" type="email" placeholder="Enter Your Email">
+                    <input name="password" type="password" placeholder="Enter Your Password">
+                    <button name="login" type="submit">LOGIN</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <%- include("footer"); -%>
+
+</html>

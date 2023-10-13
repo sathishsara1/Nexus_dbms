@@ -1,0 +1,19 @@
+<%- include("header"); -%>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+<div class="categories">
+    <form action="/getBooks" method="get">
+        <button type="submit" class="dept">MVGR Department Books</button>
+    </form>
+    <form action="/getBooks1" method="get">
+        <button type="submit" class="biography">Biographies</button>
+    </form>
+    <form action="/getBooks2" method="get">
+        <button type="submit" class="story">Story Books</button>
+    </form>
+    <!-- <form action="/getBooks" method="get">
+        <button type="submit" class="competitive">Competitive Books</button>
+    </form> -->
+</div>
+<%- include("footer"); -%>

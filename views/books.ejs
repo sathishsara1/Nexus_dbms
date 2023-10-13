@@ -1,0 +1,20 @@
+<%- include("header"); -%>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <div id="books-cont">
+        <% for (let i=0; i < bookdata.length; i++) { %>
+            <div class="book-card">
+                <h2>
+                    <%= bookdata[i].title %>
+                </h2>
+                <p>
+                    <%= bookdata[i].description %>
+                </p>
+                <p>Pages: <%= bookdata[i].pages %>
+                </p>
+                <a href=<%=bookdata[i].bookLink %>>Drive Link</a>
+            </div>
+            <% } %>
+    </div>
+    <%- include("footer"); -%>

@@ -1,0 +1,224 @@
+header{
+    background-color: #ED7014;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nexus{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 20px;
+    font-family: 'Kalam', cursive;
+    font-size: 2rem;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    width: 40vw;
+    right: 0;
+}
+header a{
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    padding: 2%;
+    transition: 0.4s;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Young Serif', serif;
+}
+a:hover{
+    background-color: black;
+    color: white;
+    border-radius: 10%; 
+}
+.Body{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 5%;
+    top: 28vh;
+    left: 10vw;
+}
+img{
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    right: -350px;
+    top: 5vw;
+}
+.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    font-weight: 1000;
+}
+#browse{
+    color: black;
+    background-color: #ED7014;
+    width: 15%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+}
+#browse:hover{
+    color: white;
+    transition: 0.4s;
+}
+.loginpage{
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#signup,#login{
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 2em;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid #ED7014;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 2em 2em;
+    background: white;
+    border-radius: 20px;
+}
+#text1,#text2{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    height: 3vw;
+    border: 2px solid #ED7014;
+    padding: 0 10px;
+}
+button{
+    color: black;
+    background-color: #ED7014;
+    width: 30%;
+    height: 30%;
+    position: relative;
+    left: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button:hover{
+    color: white;
+    transition: 0.4s;
+}
+.questions{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#q1,#q2,#q3,#q4,#q5{
+    width: 50%;
+    padding: 1rem;
+    background-color: #FFA500;
+    transition: 0.4s;
+    font-size: 0.8rem;
+}
+#q1:hover,#q2:hover,#q3:hover,#q4:hover,#q5:hover{
+    background-color: #ED7014;
+}
+#contact{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.2rem;
+}
+#contact input{
+    width: 30%;
+    height: 10%;
+}
+#sub{
+    border: 2px solid black;
+    width: auto;
+    height: auto;
+    position: relative;
+    padding: 0.5rem;
+    left: 0vw;
+}
+.categories
+{
+    height: 70dvh;
+    width: 70dvw;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;bottom: 0;left: 0;right: 0;
+    margin: auto;
+}
+.dept,.biography,.story,.competitive{
+    width: fit-content;
+    font-size: 1.1rem;
+    max-width: 20dvw;
+    min-height: 7dvh;
+    max-height: 15dvh;
+    padding: 2rem;
+    display: flex;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFA500;
+    cursor: pointer;
+}
+
+#books-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80dvh;
+    width: 80dvw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0;bottom: 0;left: 0;right: 0;
+    margin: auto;
+}
+.book-card{
+    background-color: #ed6e14af;
+    padding: 4%;
+    border-radius: 2%;
+    margin: 2%;
+}
+home a{
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+    padding: 2%;
+    transition: 0.4s;
+}
