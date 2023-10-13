@@ -73,7 +73,7 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5%;
+    border-radius: 1rem;
 }
 #browse:hover{
     color: white;
