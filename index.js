@@ -130,7 +130,10 @@ app.post("/login", async (req, res) => {
         }
     }
 })
-app.post("addAdmin",async (req,res)=>{
+app.post("/logout",(req,res)=>{
+    login = false;
+})
+app.post("/addAdmin",async (req,res)=>{
     const usermail = req.body.mail;
     await userModel.findOneAndUpdate({email:usermail},{admin:true});
     // andaka petta after frontend change this to desired route
@@ -238,7 +241,7 @@ app.post("/updateNewBook",async(req,res)=>{
     // frontend batti redirect chesuko nanna
     res.redirect("/");
 })
-app.post("deleteABook",async(req,res)=>{
+app.post("/deleteABook",async(req,res)=>{
     const title = req.body.title;
     await bookModel.deleteOne({title:title});
     // frontend batti redirect chesuko nanna
