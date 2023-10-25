@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require('path');
-const { log } = require('console');
 const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname + "/public")));
 app.set("view engine", "ejs");
