@@ -130,7 +130,12 @@ app.post("/login", async (req, res) => {
         }
     }
 })
-
+app.post("addAdmin",async (req,res)=>{
+    const usermail = req.body.mail;
+    await userModel.findOneAndUpdate({email:usermail},{admin:true});
+    // andaka petta after frontend change this to desired route
+    res.redirect("/");
+})
 app.post("/postFeedBack",async (req,res)=>{
     const {email,name,feedback} = req.body;
     console.log(email,name,feedback);
