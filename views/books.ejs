@@ -2,6 +2,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+<div class="books">
+    <div id="applications">
+            <!-- <div id="addbooks">ADD BOOKS</div>
+            <div id="update">UPDATE BOOKS</div>
+            <div id="remove">DELETE BOOKS</div> -->
+            <a id="addbooks" href="/add">ADD BOOKS</a>
+            <a id="update" href="/update">UPDATE BOOKS</a>
+            <a id="remove" href="/delete">DELETE BOOK</a>
+    </div>
     <div id="books-cont">
         <% for (let i=0; i < bookdata.length; i++) { %>
             <div class="book-card">
@@ -17,4 +26,5 @@
             </div>
             <% } %>
     </div>
+</div>
     <%- include("footer"); -%>

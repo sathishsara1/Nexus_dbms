@@ -1,0 +1,18 @@
+<%- include("header"); -%>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+
+<form id="addition" action="/addNewBooks" method="POST">
+    <input name="email" type="text" placeholder="Enter Email">
+    <input name="title" type="text" placeholder="Enter Book Title">
+    <input name="description" type="text" placeholder="Enter Description">
+    <input name="pages" type="text" placeholder = "Enter No.of Pages">
+    <input name="bookLink" type="text" placeholder="Enter bookLink">
+    <button id = "sub" name="submit" type="submit">SUBMIT</button>
+</form>
+<div id="redirect">
+    <%= redirect %>
+</div>
+<link rel="stylesheet" href="style.css">
+<%- include("footer"); -%>
