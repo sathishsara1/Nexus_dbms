@@ -26,7 +26,7 @@ header a{
     text-decoration: none;
     color: black;
     font-weight: 300;
-    padding: 2%;
+    padding: 1.5%;
     transition: 0.4s;
 }
 *{
@@ -38,7 +38,7 @@ header a{
 a:hover{
     background-color: black;
     color: white;
-    border-radius: 10%; 
+    border-radius: 2rem; 
 }
 .Body{
     width: 50%;
@@ -74,6 +74,7 @@ img{
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
+    text-decoration: none;
 }
 #browse:hover{
     color: white;
@@ -149,7 +150,7 @@ button:hover{
 #q1:hover,#q2:hover,#q3:hover,#q4:hover,#q5:hover{
     background-color: #ED7014;
 }
-#contact{
+#contact,#addition,#deletion,#updating{
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -160,6 +161,22 @@ button:hover{
 #contact input{
     width: 30%;
     height: 10%;
+}
+#addition input{
+    width: 30%;
+    height: 10%;
+}
+#deletion input{
+    width: 30%;
+    height: 10%;
+}
+#updating input{
+    width: 30%;
+    height: 10%;
+}
+#contact input:hover,#addition input:hover,#deletion input:hover,#updating input:hover{
+    box-shadow: 5px 5px #000;
+    transition: 0.4s;
 }
 #sub{
     border: 2px solid black;
@@ -200,14 +217,11 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 80dvh;
+    height: 70dvh;
     width: 80dvw;
     overflow-x: hidden;
     overflow-y: scroll;
     flex-wrap: wrap;
-    position: absolute;
-    top: 0;bottom: 0;left: 0;right: 0;
-    margin: auto;
 }
 .book-card{
     background-color: #ed6e14af;
@@ -215,10 +229,41 @@ button:hover{
     border-radius: 2%;
     margin: 2%;
 }
-home a{
+
+#applications{
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#applications a{
     text-decoration: none;
+    height: 5vh;
+    width: 15vw;
+    position: relative;
+    top: 0;bottom: 0;left: 0;right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
     color: black;
-    font-weight: 300;
-    padding: 2%;
+    background-color: #ED7014;
+}
+.books{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#addbooks:hover,#update:hover,#remove:hover{
+    color: white;
     transition: 0.4s;
+}
+#redirect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
