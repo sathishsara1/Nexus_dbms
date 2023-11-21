@@ -8,9 +8,9 @@ app.use(express.static(path.join(__dirname + "/public")));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-result1 = "Welcome to NEXUS!";
 var admin = false;
 var login = false;
+redirect = '';
 //mongoose connection 
 mongoose.connect("mongodb+srv://sathishsara1007:Sathish%40111@cluster0.f5vy3xz.mongodb.net/Nexus").then(() => {
     console.log("Connected to Database");
@@ -66,6 +66,9 @@ const feedBackSchema = new mongoose.Schema({
         required:true
     }
 });
+result2 = "Login/signup↗";
+result = "LOGIN"
+head = "NEXUS";
 const feedBackModel = mongoose.model("feedbacks",feedBackSchema);
 const bookModel = mongoose.model("books", bookSchema);
 const biographies = mongoose.model("biographies", bookSchema);
@@ -80,15 +83,26 @@ app.get("/register", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login", { result: "LOG IN" })
 })
-app.get("/about", (req, res) => {
-    res.render("about")
-})
-app.get("/contact", (req, res) => {
-    res.render("contact",{result:''})
-})
-app.get("/store", (req, res) => {
-    res.render("store")
-})
+
+    // app.get("/about", (req, res) => {
+    //     res.render("about")
+    // })
+    // app.get("/contact", (req, res) => {
+    //     res.render("contact",{result:''})
+    // })
+    // app.get("/store", (req, res) => {
+    //     res.render("store")
+    // })
+    app.get('/add',(req,res) => {
+        res.render("addbook")
+    })
+    app.get('/update',(req,res) => {
+        res.render("updatebook")
+    })
+    app.get('/delete',(req,res) => {
+        res.render("deletebook")
+    })
+
 app.post("/register", async (req, res) => {
     const { email, name, password, collegeName } = req.body;
     const user = await userModel.findOne({ email: email });
@@ -125,12 +139,30 @@ app.post("/login", async (req, res) => {
             result = "Succesfully Logged In"
             // now open all pages only if this variable is true
             login = true;
+            head =  user.name;
+            result2 = "Logout";
             res.render('home', { result1: `Welcome ${user.name}` })
         }
     }
 })
 app.post("/logout",(req,res)=>{
     login = false;
+})
+function checkLoginStatus(req, res, next) {
+    if (login) {
+      next();
+    } else {
+      res.redirect('/register');
+    }
+  }
+app.get("/about",checkLoginStatus, (req, res) => {
+    res.render("about")
+})
+app.get("/contact", checkLoginStatus,(req, res) => {
+    res.render("contact",{result:''})
+})
+app.get("/store",checkLoginStatus, (req, res) => {
+    res.render("store")
 })
 app.post("/addAdmin",async (req,res)=>{
     const usermail = req.body.mail;
@@ -214,37 +246,63 @@ app.get("/getBooks1", async (req, res) => {
         console.err(err);
     }
 });
-
+const list = ["sathishsara1007@gmail.com","123@gmail.com"]
 app.post("/addNewBooks",async (req,res)=>{
-    const result = await bookModel({
+    redirect = '';
+    const mail = req.body.email;
+    const result = new bookModel({
         title : req.body.title,
         description : req.body.description,
         pages : req.body.pages,
-        bookLink : req.body.blink
-    })
-    result.save();
-    // frontend batti redirect chesuko nanna
-    res.redirect("/");
+        bookLink : req.body.bookLink
+    }) 
+    if (list.includes(mail)){
+        redirect = '';
+        result.save();
+        res.redirect("/store");
+    }
+    else{
+        redirect = "You are not an admin to make Operations in the Website. If you want admin access kindly message to sathishsara1007@gmail.com";
+        res.render("addbook");
+    }
 })
 
 app.post("/updateNewBook",async(req,res)=>{
+    redirect = '';
+    const mail = req.body.email;
     const queryTitle = req.body.title;
     const newdetails = {
         title : req.body.newtitle,
         description : req.body.newdesc,
         pages : req.body.newpages,
-        bookLink : req.body.newpages
+        bookLink : req.body.newbookLink
     }
-    const result = await bookModel.findOneAndUpdate({title:queryTitle},newdetails);
-    result.save();
-    // frontend batti redirect chesuko nanna
-    res.redirect("/");
+    
+    if (list.includes(mail)){
+        redirect = '';
+        const result = await bookModel.findOneAndUpdate({title:queryTitle},newdetails);
+        result.save();
+        res.redirect("/store");
+    }
+    else{
+        redirect = "You are not an admin to make Operations in the Website. If you want admin access kindly message to sathishsara1007@gmail.com";
+        res.render("updatebook");
+    }
 })
 app.post("/deleteABook",async(req,res)=>{
+    redirect = '';
+    const mail = req.body.email;
     const title = req.body.title;
-    await bookModel.deleteOne({title:title});
-    // frontend batti redirect chesuko nanna
-    res.redirect("/");
+    if (list.includes(mail)){
+        redirect = '';
+        await bookModel.deleteOne({title:title});
+    res.redirect("/store");
+    }
+    else{
+        redirect = "You are not an admin to make Operations in the Website. If you want admin access kindly message to sathishsara1007@gmail.com";
+        res.render("deletebook");
+    }
+    
 })
 app.get("/getBooks2", async (req, res) => {
     try {
@@ -255,6 +313,6 @@ app.get("/getBooks2", async (req, res) => {
         console.err(err);
     }
 });
-app.listen(3553, () => {
+app.listen(3000, () => {
     console.log("Listening!", PORT);
 })
